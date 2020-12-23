@@ -42,7 +42,14 @@
         </div>
         <div id="player"></div>
     <script>
-      var tag = document.createElement('script');
+
+fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCHbJML11qXBSoJjPMs0x3ag&maxResults=1&order=date&videoType=any&key=AIzaSyDsHVwxEkL5PLc9inn6qCDLW4o73J3su7o').then(r => {
+        r.json().then(c => {
+        const link = c.items.find(d => d.id.videoId !== undefined);
+        const id = link.id.videoId;
+        return id;
+        }).then(id => {
+          var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -51,7 +58,7 @@
         player = new YT.Player('player', {
           height: '390',
           width: '640',
-          videoId: 'mL-tATzXl0Q',
+          videoId: id,
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -71,6 +78,12 @@
       function stopVideo() {
         player.stopVideo();
       }
+
+        });
+        }).catch(err => {
+        console.log(err);
+        });
+
     </script>
     </body>
 </html>
