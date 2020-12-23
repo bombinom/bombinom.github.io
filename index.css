@@ -62,6 +62,8 @@ border-radius: 3em;
 #player {
     display: flex;
     margin: 0 auto;
+    max-width: 36em;
+    max-height: 30em;
 }
 .info {
     padding: 1em;
