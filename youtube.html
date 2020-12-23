@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Welcome To The Leveling System For Bombino\'s Discord Server!">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="R3WIND Coding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bombino's Shack</title>
+        <link rel="icon" href="./images/bombinocleanpng.png">
+        <link rel="stylesheet" href="./index.css">
+    </head>
+    <header>
+        <div class="titleOfPage">
+            <img src="./images/bombinocleanpng.png" alt="binoLogo" style="width:5em;height:5em;" class="logo"> 
+            <h1 class="pageName">Youtube</h1>
+        </div>
+        <div class="navi" onclick="">
+          <img src="./images/menuforbino.png" alt="menu navigation" style="width:1em;height:1em;" onclick="navigationOpener()" class="imagenavi">
+          <p class="navigationText">Navigation</p>   
+      </div>
+      <script>
+          function navigationOpener(){
+              const navbar = document.getElementsByClassName("navi");
+              if(navbar[0].innerHTML.includes(`<a href="./index.html" class="navigation">Home</a>`)){
+                  navbar[0].innerHTML = `<img src=\"./images/menuforbino.png\" alt=\"menu navigation\" style=\"width:1em;height:1em;\" onclick=\"navigationOpener()\" class=\"imagenavi\">`;
+                  navbar[0].innerHTML += `<p class="navigationText">Navigation</p>`
+                  navbar[0].style.maxWidth = "1em";
+              } else {
+                  navbar[0].innerHTML = `<img src=\"./images/menuforbino.png\" alt=\"menu navigation\" style=\"width:1em;height:1em;\" onclick=\"navigationOpener()\" class=\"imagenavi\">`;
+                  navbar[0].innerHTML += "<a href=\"./index.html\" class=\"navigation\">Home</a>";
+                  navbar[0].innerHTML += "<a href=\"./discord.html\" class=\"navigation\">Discord</a>";
+                  navbar[0].innerHTML += "<a href=\"./youtube.html\" class=\"navigation\">Youtube</a>";
+                  navbar[0].style.maxWidth = "100%";
+              };
+          };
+      </script>
+    </header>
+    <body>
+        <div class="latestVid">
+            <h3 class="sectionTitle">Latest Video</h3>
+        </div>
+        <div id="player"></div>
+    <script>
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'mL-tATzXl0Q',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+    </body>
+</html>

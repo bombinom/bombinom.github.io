@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Welcome To The Leveling System For Bombino\'s Discord Server!">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="R3WIND Coding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bombino's Shack</title>
+        <link rel="icon" href="./images/bombinocleanpng.png">
+        <link rel="stylesheet" href="./index.css">
+        <script src="./index.js"></script>
+    </head>
+    <header>
+        <div class="titleOfPage">
+            <img src="./images/bombinocleanpng.png" alt="binoLogo" style="width:5em;height:5em;" class="logo"> 
+            <h1 class="pageName">Bombino's Shack</h1>
+            <div class="navi" onclick="">
+                <img src="./images/menuforbino.png" alt="menu navigation" style="width:1em;height:1em;" onclick="navigationOpener()" class="imagenavi">
+                <p class="navigationText">Navigation</p>   
+            </div>
+        </div>   
+        <script>
+            function navigationOpener(){
+                const navbar = document.getElementsByClassName("navi");
+                if(navbar[0].innerHTML.includes(`<a href="./index.html" class="navigation">Home</a>`)){
+                    navbar[0].innerHTML = `<img src=\"./images/menuforbino.png\" alt=\"menu navigation\" style=\"width:1em;height:1em;\" onclick=\"navigationOpener()\" class=\"imagenavi\">`;
+                    navbar[0].innerHTML += `<p class=\"navigationText\">Navigation</p>`
+                    navbar[0].style.minWidth = "10em";
+                    navbar[0].style.maxHeight = "1em";
+                    navbar[0].style.justifyContent = "left";
+                } else {
+                    navbar[0].innerHTML = `<img src=\"./images/menuforbino.png\" alt=\"menu navigation\" style=\"width:1em;height:1em;\" onclick=\"navigationOpener()\" class=\"imagenavi\">`;
+                    navbar[0].innerHTML += "<a href=\"./index.html\" class=\"navigation\">Home</a>";
+                    navbar[0].innerHTML += "<a href=\"./discord.html\" class=\"navigation\">Discord</a>";
+                    navbar[0].innerHTML += "<a href=\"./youtube.html\" class=\"navigation\">Youtube</a>";
+                    navbar[0].style.maxWidth = "100%";
+                    navbar[0].style.minWidth = "15em";
+                    navbar[0].style.maxHeight = "2em";
+                    navbar[0].style.justifyContent = "center";
+                };
+            };
+        </script>
+    </header>
+    <body>
+        <div class="sectionTitle">
+            <h3>Welcome To Bombinos Shack!</h3>
+        </div>
+        <div class="info">
+            <h3>This Site Is Currently Being Built!</h3>
+        </div>
+    </body>
+</html>

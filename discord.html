@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Welcome To The Leveling System For Bombino\'s Discord Server!">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="R3WIND Coding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bombino's Shack</title>
+        <link rel="icon" href="./images/bombinocleanpng.png">
+        <link rel="stylesheet" href="./index.css">
+    </head>
+    <header>
+        <div class="titleOfPage">
+            <img src="./images/bombinocleanpng.png" alt="binoLogo" style="width:5em;height:5em;" class="logo"> 
+            <h1 class="pageName">Discord</h1>
+        </div>
+        <div class="navi" onclick="">
+            <img src="./images/menuforbino.png" alt="menu navigation" style="width:1em;height:1em;" onclick="navigationOpener()" class="imagenavi">
+            <p class="navigationText">Navigation</p>   
+        </div>
+        <script>
+            function navigationOpener(){
+                const navbar = document.getElementsByClassName("navi");
+                if(navbar[0].innerHTML.includes(`<a href="./index.html" class="navigation">Home</a>`)){
+                    navbar[0].innerHTML = `<img src=\"./images/menuforbino.png\" alt=\"menu navigation\" style=\"width:1em;height:1em;\" onclick=\"navigationOpener()\" class=\"imagenavi\">`;
+                    navbar[0].innerHTML += `<p class="navigationText">Navigation</p>`
+                    navbar[0].style.maxWidth = "1em";
+                } else {
+                    navbar[0].innerHTML = `<img src=\"./images/menuforbino.png\" alt=\"menu navigation\" style=\"width:1em;height:1em;\" onclick=\"navigationOpener()\" class=\"imagenavi\">`;
+                    navbar[0].innerHTML += "<a href=\"./index.html\" class=\"navigation\">Home</a>";
+                    navbar[0].innerHTML += "<a href=\"./discord.html\" class=\"navigation\">Discord</a>";
+                    navbar[0].innerHTML += "<a href=\"./youtube.html\" class=\"navigation\">Youtube</a>";
+                    navbar[0].style.maxWidth = "100%";
+                };
+            };
+        </script>
+    </header>
+    <body>
+        <div class="sectionTitle">
+            <h3>Check Out The Discord!</h3>
+            <iframe src="https://discord.com/widget?id=492059049651863602&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+    </body>
+</html>
