@@ -42,7 +42,8 @@
         </div>
         <div id="player"></div>
     <script>
-
+      document.cookie = "SameSite=None"
+      alert("These Cookies Are Being Used:" + document.cookie);
 fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCHbJML11qXBSoJjPMs0x3ag&maxResults=1&order=date&videoType=any&key=AIzaSyDsHVwxEkL5PLc9inn6qCDLW4o73J3su7o').then(r => {
         r.json().then(c => {
         const link = c.items.find(d => d.id.videoId !== undefined);
